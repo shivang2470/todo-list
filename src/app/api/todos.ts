@@ -10,8 +10,10 @@ export const fetchTodos = async (token: string) => {
   if (response.status === 401) {
     localStorage.removeItem('user')
     localStorage.removeItem('todos')
+    window.location.reload()
+  } else {
+    return await response.json();
   }
-  return await response.json();
 };
 
 export const addTodo = async (title: string, token: string) => {
