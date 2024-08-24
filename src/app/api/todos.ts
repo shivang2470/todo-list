@@ -8,7 +8,8 @@ export const fetchTodos = async (token: string) => {
     },
   });
   if (response.status === 401) {
-    throw new Error("Unauthorized");
+    localStorage.removeItem('user')
+    localStorage.removeItem('todos')
   }
   return await response.json();
 };
