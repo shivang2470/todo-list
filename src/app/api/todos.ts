@@ -4,6 +4,7 @@ export const fetchTodos = async (token: string) => {
   const response = await fetch(`${BASE_URL}/todos`, {
     headers: {
       Authorization: `Bearer ${token}`,
+      'ngrok-skip-browser-warning': 'true'
     },
   });
   if (response.status === 401) {
@@ -18,6 +19,7 @@ export const addTodo = async (title: string, token: string) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
+      'ngrok-skip-browser-warning': 'true'
     },
     body: JSON.stringify({ title, completed: false }),
   });
@@ -35,6 +37,7 @@ export const updateTodo = async (
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
+      'ngrok-skip-browser-warning': 'true'
     },
     body: JSON.stringify({ title, completed }),
   });
@@ -46,6 +49,7 @@ export const deleteTodo = async (id: number, token: string) => {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
+      'ngrok-skip-browser-warning': 'true'
     },
   });
 };
